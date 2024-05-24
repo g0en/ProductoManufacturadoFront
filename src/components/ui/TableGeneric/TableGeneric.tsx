@@ -125,5 +125,5 @@ export const TableGeneric = <T extends { id: any }>({
         />
       </Paper>
     </div>
-  );
+  ); 
 };

@@ -51,6 +51,7 @@ export const ModalArticuloManufacturado = ({
     const handleClose = () => {
         setOpenModal(false);
         dispatch(removeElementActive());
+        setInsumos([]);
     };
 
     // Función para agregar insumo seleccionado y su cantidad
@@ -75,7 +76,7 @@ export const ModalArticuloManufacturado = ({
                     }).required("El insumo es requerido")
                 })
             )
-            .min(1, "Debe agregar al menos un insumo")
+            .min(0, "Debe agregar al menos un insumo")
             .required("Debe agregar al menos un insumo")
     });
 

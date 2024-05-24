@@ -7,7 +7,7 @@ import { useAppDispatch } from "../../hooks/redux";
 import { setDataTable } from "../../redux/slices/TablaReducer";
 import Swal from "sweetalert2";
 import { ModalArticuloManufacturado } from "../ui/modals/ModalArticuloManufacturado/ModalArticuloManufacturado";
-
+ 
 const API_URL = "http://localhost:8080";
 
 export const ScreenArticuloManufacturado = () => {

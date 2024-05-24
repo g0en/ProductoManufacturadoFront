@@ -27,14 +27,15 @@ const ArticuloInsumoSearch: React.FC<IArticuloInsumoSearchProps> = ({ onSelect }
     const [selectedItem, setSelectedItem] = useState<IArticuloInsumo | null>(null);
     const [quantity, setQuantity] = useState<number>(1);
 
-    const handleSearch = async () => {
+    const handleSearch = async (event: React.SyntheticEvent) => {
+        event.preventDefault(); // Prevent default form submission
         try {
-            const data = await articuloInsumoService.searchByDenominacion(searchTerm);
-            setResults(data.filter((item: IArticuloInsumo) => item.esParaElaborar));
+          const data = await articuloInsumoService.searchByDenominacion(searchTerm);
+          setResults(data.filter((item: IArticuloInsumo) => item.esParaElaborar));
         } catch (error) {
-            console.error('Error searching articulo insumo:', error);
+          console.error('Error searching articulo insumo:', error);
         }
-    };
+      };
 
     const handleSelect = () => {
         if (selectedItem && quantity > 0 && quantity <= selectedItem.stockActual) {
